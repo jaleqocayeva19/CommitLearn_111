@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <title>CommitLearn - Dashboard</title>
+</head>
+<body>
+    <h1>CommitLearn 🚀</h1>
+    <a href="/create">+ Yeni Öhdəlik Əlavə Et</a>
+
+    <h2>Aktiv Öhdəliklər (Maksimum 3)</h2>
+    <div>
+        {% for goal in active_goals %}
+            <div style="border: 1px solid green; margin: 10px; padding: 10px;">
+                <h3>{{ goal.title }}</h3>
+                <p>Müddət: {{ goal.target_days }} gün</p>
+                <p>İrəliləyiş: {{ goal.checkpoint_done }} / {{ goal.checkpoint_total }}</p>
+            </div>
+        {% else %}
+            <p>Hələ aktiv öhdəliyiniz yokdur.</p>
+        {% endfor %}
+    </div>
+
+    <h2>Gözləmə Siyahısı (Backlog)</h2>
+    <div>
+        {% for goal in backlog_goals %}
+            <div style="border: 1px solid gray; margin: 10px; padding: 10px;">
+                <h3>{{ goal.title }}</h3>
+                <p>Sırada gözləyir...</p>
+            </div>
+        {% else %}
+            <p>Backlog boşdur.</p>
+        {% endfor %}
+    </div>
+</body>
+</html>
