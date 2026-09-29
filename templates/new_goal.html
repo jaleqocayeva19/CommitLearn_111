@@ -1,24 +1,53 @@
 <!DOCTYPE html>
-<html lang="az">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Yeni Öhdəlik</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CommitLearn - Create Goal</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <h2>Yeni Öhdəlik Yarat</h2>
-    <form method="POST">
-        <label>Öhdəliyin adı:</label><br>
-        <input type="text" name="title" required><br><br>
+<body class="bg-gray-900 text-gray-100 min-h-screen flex items-center justify-center p-4">
+
+    <div class="bg-gray-800 border border-gray-700 rounded-2xl p-8 max-w-md w-full shadow-2xl space-y-6">
         
-        <label>Hədəf Müddət (gün):</label><br>
-        <input type="number" name="target_days" required><br><br>
-        
-        <label>Checkpoint Sayı:</label><br>
-        <input type="number" name="checkpoint_total" required><br><br>
-        
-        <button type="submit">Yarat</button>
-    </form>
-    <br>
-    <a href="/">Geri dön</a>
+        <!-- Header -->
+        <div class="text-center space-y-2">
+            <h2 class="text-2xl font-bold text-white">Create New Commitment</h2>
+            <p class="text-xs text-gray-400">Focus Discipline: If you already have 3 active goals, this will go directly to the Backlog.</p>
+        </div>
+
+        <!-- Form -->
+        <form action="/create" method="POST" class="space-y-5">
+            <div>
+                <label class="block text-sm font-medium text-gray-300 mb-1.5">Goal Title</label>
+                <input type="text" name="title" required placeholder="e.g., 30 Days of Python" 
+                       class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-2.5 text-gray-100 placeholder-gray-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all text-sm">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-300 mb-1.5">Target Duration (Days)</label>
+                <input type="number" name="target_days" required placeholder="30" min="1"
+                       class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-2.5 text-gray-100 placeholder-gray-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all text-sm">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-300 mb-1.5">Total Checkpoints</label>
+                <input type="number" name="checkpoint_total" required placeholder="5" min="1"
+                       class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-2.5 text-gray-100 placeholder-gray-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all text-sm">
+            </div>
+
+            <div class="pt-2 flex items-center space-x-3">
+                <a href="/" class="w-1/3 text-center bg-gray-700 hover:bg-gray-600 text-gray-300 font-medium py-2.5 rounded-lg transition-all text-sm">
+                    Back
+                </a>
+                <button type="submit" class="w-2/3 bg-indigo-600 hover:bg-indigo-500 text-white font-medium py-2.5 rounded-lg transition-all shadow-md text-sm">
+                    Create Goal
+                </button>
+            </div>
+        </form>
+
+    </div>
+
 </body>
 </html>
